@@ -1,0 +1,28 @@
+# Commands for Data Processing and Analysis
+
+
+wget https://www.kaggle.com/datasets/elemento/nyc-yellow-taxi-trip-data -O nyc_taxi_data.zip
+
+
+unzip nyc_taxi_data.zip -d nyc_taxi_data/
+
+
+hdfs dfs -mkdir /user/nyc_taxi_data
+hdfs dfs -put nyc_taxi_data/*.csv /user/nyc_taxi_data/
+
+
+# Job 1: Total revenue per year
+hadoop jar revenue_analysis.jar /user/nyc_taxi_data /user/output/revenue_per_year
+
+# Job 2: Top 10 pickup/drop-off locations
+hadoop jar location_analysis.jar /user/nyc_taxi_data /user/output/top_locations
+
+
+hadoop jar distance_analysis.jar /user/nyc_taxi_data /user/output/avg_distance_by_passenger
+
+oozie job -oozie http://<oozie-server>:11000/oozie -config oozie-config.xml -run
+
+
+hdfs dfs -cat /user/output/revenue_per_year/part-r-00000
+hdfs dfs -cat /user/output/top_locations/part-r-00000
+hdfs dfs -cat /user/output/avg_distance_by_passenger/part-r-00000

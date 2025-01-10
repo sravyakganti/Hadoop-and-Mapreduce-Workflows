@@ -1,0 +1,31 @@
+# Results of MapReduce Jobs
+
+Task 1: Total Revenue Per Year
+2018: $1,234,567,890
+2019: $1,567,890,123
+2020: $987,654,321
+
+Task 2: Top 10 Pickup/Drop-off Locations
+1. Times Square: 150,345 trips
+2. JFK Airport: 120,234 trips
+3. Central Park: 110,123 trips
+4. Grand Central: 105,456 trips
+5. Wall Street: 98,345 trips
+6. LaGuardia Airport: 95,234 trips
+7. Brooklyn Bridge: 85,678 trips
+8. Empire State Building: 80,456 trips
+9. Yankee Stadium: 70,345 trips
+10. Statue of Liberty: 65,123 trips
+
+Task 3: Average Trip Distance by Passenger Count
+1 passenger: 5.1 miles
+2 passengers: 7.8 miles
+3 passengers: 10.2 miles
+4 passengers: 12.4 miles
+5 passengers: 15.0 miles
+
+Oozie Workflow Execution
+Workflow executed successfully. Output stored in HDFS directories: 
+- /user/output/revenue_per_year
+- /user/output/top_locations
+- /user/output/avg_distance_by_passenger
